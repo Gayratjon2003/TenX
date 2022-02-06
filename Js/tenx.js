@@ -112,12 +112,12 @@ const beginTest = async () => {
           // const nextLesson = document.querySelector(".next-lesson");
           // const sections = document.querySelectorAll(".section");
           // const tests = document.querySelector(".quiz");
-        //   section.style.display = "block";
+          //   section.style.display = "block";
         });
-        const modalMy = document.querySelector('.modal-my');
+        const modalMy = document.querySelector(".modal-my");
         list.style.opacity = 1;
         tests.style.display = "none";
-        modalMy.style.display ='block';
+        modalMy.style.display = "block";
       }
     }
     nextBtn.addEventListener("click", checkAnswer);
@@ -133,28 +133,28 @@ nextLesson.addEventListener("click", () => {
   });
   list.style.opacity = 0;
   tests.style.display = "block";
-  tests.classList.remove('hidden')
+  tests.classList.remove("hidden");
 
   beginTest();
 });
 
 //  Testlardan keyin chiqadigan modal
-const modalBtn = document.querySelector('.nextBtn');
-const modalMy = document.querySelector('.modal-my');
+const modalBtn = document.querySelector(".nextBtn");
+const modalMy = document.querySelector(".modal-my");
 // modalBtn.addEventListener('click',()=> {
 //     modalMy.classList.remove('hidden');
 // })
 
-const nextLessonBtn = document.querySelector('.next-btn-my');
-nextLessonBtn.addEventListener('click', ()=> {
-    sections.forEach((section) => {
-        const nextLesson = document.querySelector(".next-lesson");
-        const sections = document.querySelectorAll(".section");
-        const tests = document.querySelector(".quiz");
-        section.style.display = "block";
-        modalMy.style.display = 'none';
-      });
-})
+const nextLessonBtn = document.querySelector(".next-btn-my");
+nextLessonBtn.addEventListener("click", () => {
+  sections.forEach((section) => {
+    const nextLesson = document.querySelector(".next-lesson");
+    const sections = document.querySelectorAll(".section");
+    const tests = document.querySelector(".quiz");
+    section.style.display = "block";
+    modalMy.style.display = "none";
+  });
+});
 
 const listBlog = document.querySelector(".list-blog");
 
@@ -168,11 +168,18 @@ const listBlog = document.querySelector(".list-blog");
 
     const responseData = await response.json();
 
+    const switchLesson = (id, isTest = false) => {
+      const lessonData = responseData.data.filter((lesson) => lesson.id === id);
+
+      console.log(lessonData);
+    };
+
     responseData.data.map((lesson) => {
+      console.log(lesson.id);
       console.log(lesson);
       const wrapper = document.createElement("div");
-        wrapper.classList.add('div-my')
-        wrapper.style.width = '95%';
+      wrapper.classList.add("div-my");
+      wrapper.style.width = "95%";
       const listHeader = document.createElement("div");
       listHeader.className = "list-header";
 
@@ -185,7 +192,6 @@ const listBlog = document.querySelector(".list-blog");
 
       const lessonContainer = document.createElement("div");
       lessonContainer.className = "list-blog-container";
-        lessonContainer.id = lesson.id;
       lessonContainer.innerHTML = `
         <div class="list-content-box-blog">
             <span class="file-icon-my"><i class="bx bx-file"></i></span>
@@ -196,6 +202,10 @@ const listBlog = document.querySelector(".list-blog");
             <label for="checkbox" class="checkbox-my"></label>
         </div>
         `;
+
+      lessonContainer.addEventListener("click", () => {
+        switchLesson(lesson.id);
+      });
 
       wrapper.append(lessonContainer);
 
@@ -212,6 +222,10 @@ const listBlog = document.querySelector(".list-blog");
         </div>
         `;
 
+      quizContainer.addEventListener("click", () => {
+        switchLesson(lesson.id, true);
+      });
+
       wrapper.append(quizContainer);
 
       listBlog.append(wrapper);
@@ -223,5 +237,5 @@ const listBlog = document.querySelector(".list-blog");
   }
 })();
 
-const video = document.querySelector('.video');
+const video = document.querySelector(".video");
 // video.src = 'https://youtu.be/iZNQ8XU0Lgo';
