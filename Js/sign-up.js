@@ -7,6 +7,7 @@ const password2 = document.querySelector('.input-password-2')
 // const btnGet = document.querySelector('.btn-2');  
 const baseUrl = 'http://localhost:1337';
 
+
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
       method: 'POST', 
@@ -25,33 +26,37 @@ async function postData(url = '', data = {}) {
 
 
   SignUp.addEventListener('click', ()=> {
+    let email = inputEmail.value;
     postData(`${baseUrl}/api/auth/local/register`, {
         email: inputEmail.value,
         password: password1.value,
     }).then((res) => {
-        console.log(res.jwt);
         let jwtMy = res.jwt;
         localStorage.setItem('token', jwtMy)
     }).catch((err)=> {
         console.log(err.message);
     })
-});
-let email = inputEmail.value;
+
     function checkEmail(email) {
-    if (email.indexOf("@") !== -1 && email.indexOf(".") !== -1 && password1.value === password2.value && password1.value > 5) {
-        if( email.indexOf(".") > email.indexOf("@") ) {
-            // location.href = "../index.html";
-        } else {
-          invalidText.style.opacity = 1;
-          invalidText.style.visibility = 'visible';
+      if (email.indexOf("@") !== -1 && email.indexOf(".") !== -1 && password1.value === password2.value && password1.value > 5) {
+          if( email.indexOf(".") > email.indexOf("@") ) {
+             console.log('tog`ri');
+              const token = localStorage.getItem('token');
+              if( token !== '') {
+                location.href = "../index.html";
+              } 
+              invalidText.style.opacity = 0;
+              invalidText.style.visibility = 'hidden';
+          } else {
+            invalidText.style.opacity = 1;
+            invalidText.style.visibility = 'visible';
+          }
+      } else {
+            invalidText.style.opacity = 1;
+            invalidText.style.visibility = 'visible';
+      }
+  }
+  checkEmail(email)
 
-        }
-        
-    } else {
-        // console.log('yo`q');
-          invalidText.style.opacity = 1;
-          invalidText.style.visibility = 'visible';
-    }
-}
-checkEmail(email)
-
+});
+  
