@@ -169,7 +169,7 @@ const listBlog = document.querySelector(".list-blog");
     const responseData = await response.json();
 
     responseData.data.map((lesson) => {
-      console.log(lesson);
+    //   console.log(lesson);
       const wrapper = document.createElement("div");
         wrapper.classList.add('div-my')
         wrapper.style.width = '95%';
@@ -178,7 +178,8 @@ const listBlog = document.querySelector(".list-blog");
 
       const listHeaderContent = document.createElement("h1");
       listHeaderContent.textContent = lesson.attributes.title;
-
+        console.log(lesson?.attributes?.video);
+        videoControl.src = lesson?.attributes?.video;
       listHeader.append(listHeaderContent);
 
       wrapper.append(listHeader);
@@ -217,11 +218,8 @@ const listBlog = document.querySelector(".list-blog");
       listBlog.append(wrapper);
     });
 
-    console.log("salom");
   } catch (error) {
     console.log(error.message);
   }
 })();
 
-const video = document.querySelector('.video');
-// video.src = 'https://youtu.be/iZNQ8XU0Lgo';
