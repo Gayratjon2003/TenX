@@ -472,7 +472,7 @@ body {
 .list-my {
   position: fixed;
   left: 4rem;
-  bottom: 4rem;
+  bottom: 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -511,7 +511,7 @@ body {
   -webkit-transition: 0.5s all linear;
   transition: 0.5s all linear;
   left: 5.6rem;
-  top: 6rem;
+  top: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -527,7 +527,7 @@ body {
           flex-direction: column;
   background-color: #1c1e22;
   border-radius: 0.5rem;
-  height: 80vh;
+  height: 80rem;
   overflow-y: scroll;
   opacity: 0;
   visibility: hidden;
@@ -928,7 +928,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .modal-my {
@@ -943,16 +943,34 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  display: none;
 }
 
 .modal-my h1 {
   font-size: 4rem;
-  color: rgba(240, 240, 240, 0.562);
-  margin-bottom: 2rem;
+  color: #fff;
+  margin-bottom: 3rem;
 }
 
 .modal-my .btn {
   padding: 2rem 3rem;
   font-size: 2rem;
+  background: #f6f37b;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.modal-my div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=tenx.css.map */

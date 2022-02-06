@@ -343,7 +343,7 @@ body {
 .list-my {
     position: fixed;
     left: 4rem;
-    bottom: 4rem;
+    bottom: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -370,7 +370,7 @@ body {
             @include colorWhite2();
             transition: 0.5s all linear;
             left: 5.6rem;
-            top: 6rem;
+            top: 5rem;
             // width: 100%;
             display: flex;
             justify-content: center;
@@ -378,7 +378,7 @@ body {
             flex-direction: column;
             background-color: #1c1e22;
             border-radius: 0.5rem;
-            height: 80vh;
+            height: 80rem;
             overflow-y: scroll;
             opacity: 0;
             visibility: hidden;
@@ -698,7 +698,7 @@ body {
   }
   
   .hidden {
-    display: none;
+    display: none !important;
   }
   
   .modal-my {
@@ -707,13 +707,24 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
+      display: none;
       h1 {
           font-size: 4rem;
-          @include colorWhite2();
-          margin-bottom: 2rem;
+          @include colorWhite();
+          margin-bottom: 3rem;
       }
       .btn {
           padding: 2rem 3rem;
           font-size: 2rem;
+          background: #f6f37b;
+          border: 1px solid transparent;
+          border-radius: 0.5rem;
+          cursor: pointer;
+      }
+      div {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+         
       }
   }
