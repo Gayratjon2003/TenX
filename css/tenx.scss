@@ -342,12 +342,14 @@ body {
 
 .list-my {
     position: fixed;
-    left: 4rem;
+    left: 10rem;
     bottom: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    .list-btn {
+        transition: 1s all linear;
+    }
     i {
         @include colorWhite();
         font-size: 4rem;
@@ -629,3 +631,75 @@ body {
         }
     }
 }
+
+.quiz_title {
+    font-size: 4rem;
+    margin: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .quiz_body_title {
+    text-align: center;
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 3rem;
+  }
+  
+  .quiz_body_num {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin: 4rem 0;
+  }
+  
+  .common ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .common li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 55%;
+    height: 5rem;
+    background-color: rgba(53, 52, 61, 0.26);
+    margin: 1rem 0;
+    font-size: 3rem;
+    color: white;
+  }
+  
+  .common li div {
+    margin: 0 2rem;
+  }
+  
+  .questionTyping {
+    margin: 3rem 7rem;
+  }
+  
+  .questionTyping input {
+    width: 40rem;
+    height: 5rem;
+    outline: none;
+    font-size: 4rem;
+  }
+  
+  #nextBtn {
+    padding: 1rem 2rem;
+    height: 4rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: yellow;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  

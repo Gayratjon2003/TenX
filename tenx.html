@@ -23,7 +23,7 @@
                 </div>
             </div>
         </nav>
-        <section class="section-my">
+        <section class="section-my section">
             <div class="container-60">
                 <div class="section-my-box">
                     <div class="videos">
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </section>
-        <section class="section-blogs">
+        <section class="section-blogs section">
             <div class="container-60">
                 <div class="section-blogs-box">
                     <p>
@@ -71,13 +71,13 @@
                             <i class='bx bxs-dislike'></i>
                         </div>
                        <div class="next-btn-div">
-                        <button class="next-lesson">Next Lesson</button>
+                       <button class="next-lesson">Next Lesson</button>
                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="section-post">
+        <section class="section-post section">
             <div class="container-60">
                 <div class="section-post-box">
                     <div class="post-img">
@@ -99,9 +99,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <div class="list-my">
+        </section>   
+        <div class="list-my section" >
             <i class='bx bx-list-ul list-btn'></i>
             <div class="list-blog-box">
                 
@@ -186,6 +185,67 @@
                 </div>
             </div>
         </div>
-
-</body><script src="./Js/tenx.js"></script>
+        <section class="quiz hidden">
+            <h1 class="quiz_title">Lorem ipsum dolor sit amet.</h1>
+            <div class="quiz_body">
+              <p class="quiz_body_num">Question <span></span></p>
+              <h3 class="quiz_body_title"></h3>
+              <div class="quiz_body_type">
+                <div class="common mulChoise hidden">
+                  <ul>
+                    <li>
+                      <div class="radio">
+                        <input type="radio" name="answer" id="answer" />
+                      </div>
+                      <label for="answer"><p></p></label>
+                    </li>
+                    <li>
+                      <div class="radio">
+                        <input type="radio" name="answer" id="answer1" />
+                      </div>
+                      <label for="answer1"><p></p></label>
+                    </li>
+                    <li>
+                      <div class="radio">
+                        <input type="radio" name="answer" id="answer2" />
+                      </div>
+                      <label for="answer2"><p></p></label>
+                    </li>
+                    <li>
+                      <div class="radio">
+                        <input type="radio" name="answer" id="answer3" />
+                      </div>
+                      <label for="answer3"><p></p></label>
+                    </li>
+                  </ul>
+                </div>
+                <div class="common trueFalse hidden">
+                  <ul>
+                    <li>
+                      <div class="radio">
+                        <input type="radio" name="answer" id="answer5" />
+                      </div>
+                      <label for="answer5"><p></p></label>
+                    </li>
+                    <li>
+                      <div class="radio">
+                        <input type="radio" name="answer" id="answer6" />
+                      </div>
+                      <label for="answer6"><p></p></label>
+                    </li>
+                  </ul>
+                </div>
+                <div class="common notOneAnswer hidden">
+                  <ul></ul>
+                </div>
+                <div class="common questionTyping hidden">
+                  <input type="text" />
+                </div>
+              </div>
+              <button id="nextBtn">Next Question</button>
+            </div>
+          </section>
+        <script src="./Js/tenx.js"></script>
+          <script src="./Js/tests.js"></script>
+        </body>
 </html>

@@ -471,7 +471,7 @@ body {
 
 .list-my {
   position: fixed;
-  left: 4rem;
+  left: 10rem;
   bottom: 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -482,6 +482,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.list-my .list-btn {
+  -webkit-transition: 1s all linear;
+  transition: 1s all linear;
 }
 
 .list-my i {
@@ -845,5 +850,89 @@ body {
 
 .section-post .container-60 .section-post-box .post-blog .post-blog-footer .post-btn:hover {
   background-color: #fff;
+}
+
+.quiz_title {
+  font-size: 4rem;
+  margin: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.quiz_body_title {
+  text-align: center;
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.quiz_body_num {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  margin: 4rem 0;
+}
+
+.common ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.common li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 55%;
+  height: 5rem;
+  background-color: rgba(53, 52, 61, 0.26);
+  margin: 1rem 0;
+  font-size: 3rem;
+  color: white;
+}
+
+.common li div {
+  margin: 0 2rem;
+}
+
+.questionTyping {
+  margin: 3rem 7rem;
+}
+
+.questionTyping input {
+  width: 40rem;
+  height: 5rem;
+  outline: none;
+  font-size: 4rem;
+}
+
+#nextBtn {
+  padding: 1rem 2rem;
+  height: 4rem;
+  font-size: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: yellow;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=tenx.css.map */

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "q1",
+    "question": "This keyword is another name for window",
+    "answers": ["true", "false"],
+    "correctAnswer": ["false"]
+  },
+  {
+    "id": "q2",
+    "question": "var i = 0; console.log(i++); console.log(++i); console.log(i);",
+    "answers": ["000", "012", "022", "001"],
+    "correctAnswer": ["022"]
+  },
+  {
+    "id": "q3",
+    "question": "What data type is reference in JavaScript?",
+    "answers": [],
+    "correctAnswer": ["object"]
+  }
+]
