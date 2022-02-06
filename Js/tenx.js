@@ -224,3 +224,4 @@ const listBlog = document.querySelector(".list-blog");
 })();
 
 const video = document.querySelector('.video');
+// video.src = 'https://youtu.be/iZNQ8XU0Lgo';
