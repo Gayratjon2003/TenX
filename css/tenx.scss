@@ -368,7 +368,6 @@ body {
         position: relative;
         z-index: 200;
         width: 50rem;
-        // border: 1px solid green;
         .list-blog {
             position: absolute;
             @include colorWhite2();
@@ -377,7 +376,6 @@ body {
             left: -5.6rem;
             width: 100%;
             display: flex;
-            justify-content: center;
             align-items: center;
             flex-direction: column;
             background-color: #1c1e22;
