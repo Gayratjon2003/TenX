@@ -471,7 +471,7 @@ body {
 
 .list-my {
   position: fixed;
-  left: 10rem;
+  left: 4rem;
   bottom: 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -504,19 +504,14 @@ body {
   color: rgba(240, 240, 240, 0.562);
 }
 
-.list-my .list-blog-box {
-  position: relative;
-  width: 50rem;
-}
-
 .list-my .list-blog-box .list-blog {
-  position: absolute;
+  position: fixed;
+  width: 50rem;
   color: rgba(240, 240, 240, 0.562);
   -webkit-transition: 0.5s all linear;
   transition: 0.5s all linear;
-  bottom: 100%;
-  left: -5.6rem;
-  width: 100%;
+  left: 5.6rem;
+  top: 6rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -934,5 +929,30 @@ body {
 
 .hidden {
   display: none;
+}
+
+.modal-my {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-my h1 {
+  font-size: 4rem;
+  color: rgba(240, 240, 240, 0.562);
+  margin-bottom: 2rem;
+}
+
+.modal-my .btn {
+  padding: 2rem 3rem;
+  font-size: 2rem;
 }
 /*# sourceMappingURL=tenx.css.map */

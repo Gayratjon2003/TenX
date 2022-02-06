@@ -108,10 +108,10 @@ const beginTest = async () => {
       } else {
         console.log("gameOver");
         nextBtn.disabled = true;
+        const nextLesson = document.querySelector('.next-lesson');
+        const sections = document.querySelectorAll('.section');
+        const tests = document.querySelector('.quiz');
         sections.forEach((section) => {
-          const nextLesson = document.querySelector('.next-lesson');
-          const sections = document.querySelectorAll('.section');
-          const tests = document.querySelector('.quiz');
           section.style.display = 'block';
         })
         list.style.opacity = 1;

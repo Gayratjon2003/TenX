@@ -342,7 +342,7 @@ body {
 
 .list-my {
     position: fixed;
-    left: 10rem;
+    left: 4rem;
     bottom: 4rem;
     display: flex;
     justify-content: center;
@@ -364,16 +364,14 @@ body {
         }
     }
     .list-blog-box {
-        position: relative;
-        width: 50rem;
-        // border: 1px solid green;
         .list-blog {
-            position: absolute;
+            position: fixed;
+            width: 50rem;
             @include colorWhite2();
             transition: 0.5s all linear;
-            bottom: 100%;
-            left: -5.6rem;
-            width: 100%;
+            left: 5.6rem;
+            top: 6rem;
+            // width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -703,3 +701,19 @@ body {
     display: none;
   }
   
+  .modal-my {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h1 {
+          font-size: 4rem;
+          @include colorWhite2();
+          margin-bottom: 2rem;
+      }
+      .btn {
+          padding: 2rem 3rem;
+          font-size: 2rem;
+      }
+  }
