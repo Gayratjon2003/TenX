@@ -114,6 +114,7 @@ const beginTest = async () => {
           // const tests = document.querySelector(".quiz");
         //   section.style.display = "block";
         });
+        const modalMy = document.querySelector('.modal-my');
         list.style.opacity = 1;
         tests.style.display = "none";
         modalMy.style.display ='block';
@@ -142,6 +143,17 @@ nextLesson.addEventListener("click", () => {
 //  Testlardan keyin chiqadigan modal
 const modalBtn = document.querySelector('.nextBtn');
 const modalMy = document.querySelector('.modal-my');
-modalBtn.addEventListener('click',()=> {
-    modalMy.classList.remove('hidden');
+// modalBtn.addEventListener('click',()=> {
+//     modalMy.classList.remove('hidden');
+// })
+
+const nextLessonBtn = document.querySelector('.next-btn-my');
+nextLessonBtn.addEventListener('click', ()=> {
+    sections.forEach((section) => {
+        const nextLesson = document.querySelector(".next-lesson");
+        const sections = document.querySelectorAll(".section");
+        const tests = document.querySelector(".quiz");
+        section.style.display = "block";
+        modalMy.style.display = 'none';
+      });
 })
