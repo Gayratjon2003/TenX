@@ -7,10 +7,9 @@ youtubeMy.addEventListener("click", () => {
   videoControl.setAttribute("controls", "controls");
 });
 const listBtn = document.querySelector(".list-btn");
-const list = document.querySelector(".list-blog");
-
+const listMy = document.querySelector('.list-blog');
 listBtn.addEventListener("click", () => {
-  list.classList.toggle("hidden-list");
+  listMy.classList.toggle("hidden-list");
   listBtn.classList.toggle("bx-x");
 });
 const nextLesson = document.querySelector(".next-lesson");
@@ -115,7 +114,6 @@ const beginTest = async () => {
           //   section.style.display = "block";
         });
         const modalMy = document.querySelector(".modal-my");
-        list.style.opacity = 1;
         tests.style.display = "none";
         modalMy.style.display = "block";
       }
@@ -131,7 +129,6 @@ nextLesson.addEventListener("click", () => {
   sections.forEach((section) => {
     section.style.display = "none";
   });
-  list.style.opacity = 0;
   tests.style.display = "block";
   tests.classList.remove("hidden");
 
