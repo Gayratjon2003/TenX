@@ -160,7 +160,7 @@ const listBlog = document.querySelector(".list-blog");
 
 (async () => {
   try {
-    const response = await fetch("http://192.168.43.60:1337/api/lessons");
+    const response = await fetch("http://localhost:1337/api/lessons");
 
     if (!response.ok) {
       throw new Error("Something went wrong");
@@ -181,9 +181,7 @@ const listBlog = document.querySelector(".list-blog");
         console.log(lesson?.attributes?.video);
         videoControl.src = lesson?.attributes?.video;
       listHeader.append(listHeaderContent);
-
       wrapper.append(listHeader);
-
       const lessonContainer = document.createElement("div");
       lessonContainer.className = "list-blog-container";
         lessonContainer.id = lesson.id;
