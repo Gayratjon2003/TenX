@@ -368,6 +368,7 @@ body {
         position: relative;
         z-index: 200;
         width: 50rem;
+        // border: 1px solid green;
         .list-blog {
             position: absolute;
             @include colorWhite2();
