@@ -107,17 +107,17 @@ const beginTest = async () => {
         switchQuestion();
       } else {
         console.log("gameOver");
-        nextBtn.disabled = true;
+        // nextBtn.disabled = true;
         sections.forEach((section) => {
           // const nextLesson = document.querySelector(".next-lesson");
           // const sections = document.querySelectorAll(".section");
           // const tests = document.querySelector(".quiz");
-        //   section.style.display = "block";
+          //   section.style.display = "block";
         });
-        const modalMy = document.querySelector('.modal-my');
+        const modalMy = document.querySelector(".modal-my");
         list.style.opacity = 1;
         tests.style.display = "none";
-        modalMy.style.display ='block';
+        modalMy.style.display = "block";
       }
     }
     nextBtn.addEventListener("click", checkAnswer);
@@ -133,28 +133,28 @@ nextLesson.addEventListener("click", () => {
   });
   list.style.opacity = 0;
   tests.style.display = "block";
-  tests.classList.remove('hidden')
+  tests.classList.remove("hidden");
 
   beginTest();
 });
 
 //  Testlardan keyin chiqadigan modal
-const modalBtn = document.querySelector('.nextBtn');
-const modalMy = document.querySelector('.modal-my');
+const modalBtn = document.querySelector(".nextBtn");
+const modalMy = document.querySelector(".modal-my");
 // modalBtn.addEventListener('click',()=> {
 //     modalMy.classList.remove('hidden');
 // })
 
-const nextLessonBtn = document.querySelector('.next-btn-my');
-nextLessonBtn.addEventListener('click', ()=> {
-    sections.forEach((section) => {
-        const nextLesson = document.querySelector(".next-lesson");
-        const sections = document.querySelectorAll(".section");
-        const tests = document.querySelector(".quiz");
-        section.style.display = "block";
-        modalMy.style.display = 'none';
-      });
-})
+const nextLessonBtn = document.querySelector(".next-btn-my");
+nextLessonBtn.addEventListener("click", () => {
+  sections.forEach((section) => {
+    const nextLesson = document.querySelector(".next-lesson");
+    const sections = document.querySelectorAll(".section");
+    const tests = document.querySelector(".quiz");
+    section.style.display = "block";
+    modalMy.style.display = "none";
+  });
+});
 
 const listBlog = document.querySelector(".list-blog");
 
@@ -168,23 +168,37 @@ const listBlog = document.querySelector(".list-blog");
 
     const responseData = await response.json();
 
+    const switchLesson = (id, isTest = false) => {
+      const lessonData = responseData.data.filter((lesson) => lesson.id === id);
+      const video = document.querySelector(".video");
+      const textBody = document.querySelector('.section-blogs-box-p');
+      console.log(lessonData[0].attributes.content);
+      if(!isTest) {
+        video.src = lessonData[0].attributes.video;
+        textBody.textContent = lessonData[0].attributes.content;
+      }
+      console.log(lessonData);
+    };
+
     responseData.data.map((lesson) => {
-    //   console.log(lesson);
+      console.log(lesson.id);
+      console.log(lesson);
       const wrapper = document.createElement("div");
-        wrapper.classList.add('div-my')
-        wrapper.style.width = '95%';
+      wrapper.classList.add("div-my");
+      wrapper.style.width = "95%";
       const listHeader = document.createElement("div");
       listHeader.className = "list-header";
 
       const listHeaderContent = document.createElement("h1");
       listHeaderContent.textContent = lesson.attributes.title;
-        console.log(lesson?.attributes?.video);
-        videoControl.src = lesson?.attributes?.video;
+      console.log(lesson.attributes.video);
+      // video.src = lesson.attributes.video;
       listHeader.append(listHeaderContent);
+
       wrapper.append(listHeader);
+
       const lessonContainer = document.createElement("div");
       lessonContainer.className = "list-blog-container";
-        lessonContainer.id = lesson.id;
       lessonContainer.innerHTML = `
         <div class="list-content-box-blog">
             <span class="file-icon-my"><i class="bx bx-file"></i></span>
@@ -195,6 +209,10 @@ const listBlog = document.querySelector(".list-blog");
             <label for="checkbox" class="checkbox-my"></label>
         </div>
         `;
+
+      lessonContainer.addEventListener("click", () => {
+        switchLesson(lesson.id);
+      });
 
       wrapper.append(lessonContainer);
 
@@ -211,13 +229,19 @@ const listBlog = document.querySelector(".list-blog");
         </div>
         `;
 
+      quizContainer.addEventListener("click", () => {
+        switchLesson(lesson.id, true);
+      });
+
       wrapper.append(quizContainer);
 
       listBlog.append(wrapper);
     });
 
+    console.log("salom");
   } catch (error) {
     console.log(error.message);
   }
 })();
+
 
