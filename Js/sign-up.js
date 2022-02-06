@@ -1,9 +1,10 @@
 'use strict'
-const signUp = document.querySelector('.btn-sign-up');
+const SignUp = document.querySelector('.btn-sign-up');
 const inputEmail = document.querySelector('.input-email');
 const invalidText = document.querySelector('.login-invalid');
 const password1 = document.querySelector('.input-password-1')
 const password2 = document.querySelector('.input-password-2')
+// const btnGet = document.querySelector('.btn-2');  
 const baseUrl = 'http://localhost:1337';
 
 async function postData(url = '', data = {}) {
@@ -23,10 +24,10 @@ async function postData(url = '', data = {}) {
   }
 
 
-  signUp.addEventListener('click', ()=> {
+  SignUp.addEventListener('click', ()=> {
     postData(`${baseUrl}/api/auth/local/register`, {
-        identifier: inputEmail.value,
-        password: 'salomsalom',
+        email: inputEmail.value,
+        password: password1.value,
     }).then((res) => {
         console.log(res.jwt);
         let jwtMy = res.jwt;
@@ -34,21 +35,23 @@ async function postData(url = '', data = {}) {
     }).catch((err)=> {
         console.log(err.message);
     })
-
-    
 });
+let email = inputEmail.value;
+    function checkEmail(email) {
+    if (email.indexOf("@") !== -1 && email.indexOf(".") !== -1 && password1.value === password2.value && password1.value > 5) {
+        if( email.indexOf(".") > email.indexOf("@") ) {
+            // location.href = "../index.html";
+        } else {
+          invalidText.style.opacity = 1;
+          invalidText.style.visibility = 'visible';
 
-const token = localStorage.getItem('token');
-const bearer = 'Bearer ' + token;
-console.log(token);
-
-btnGet.addEventListener('click', ()=> {
-fetch(`${baseUrl}/api/blogs`, {
-    headers: {
-    Authorization: bearer,
+        }
+        
+    } else {
+        // console.log('yo`q');
+          invalidText.style.opacity = 1;
+          invalidText.style.visibility = 'visible';
     }
-  },
-).then(data=> {
-    console.log(data); 
-})
-})
+}
+checkEmail(email)
+
