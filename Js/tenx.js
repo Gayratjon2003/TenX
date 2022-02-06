@@ -155,3 +155,72 @@ nextLessonBtn.addEventListener('click', ()=> {
         modalMy.style.display = 'none';
       });
 })
+
+const listBlog = document.querySelector(".list-blog");
+
+(async () => {
+  try {
+    const response = await fetch("http://192.168.43.60:1337/api/lessons");
+
+    if (!response.ok) {
+      throw new Error("Something went wrong");
+    }
+
+    const responseData = await response.json();
+
+    responseData.data.map((lesson) => {
+      console.log(lesson);
+      const wrapper = document.createElement("div");
+        wrapper.classList.add('div-my')
+        wrapper.style.width = '95%';
+      const listHeader = document.createElement("div");
+      listHeader.className = "list-header";
+
+      const listHeaderContent = document.createElement("h1");
+      listHeaderContent.textContent = lesson.attributes.title;
+
+      listHeader.append(listHeaderContent);
+
+      wrapper.append(listHeader);
+
+      const lessonContainer = document.createElement("div");
+      lessonContainer.className = "list-blog-container";
+        lessonContainer.id = lesson.id;
+      lessonContainer.innerHTML = `
+        <div class="list-content-box-blog">
+            <span class="file-icon-my"><i class="bx bx-file"></i></span>
+            <p class="list-blog-content">
+                ${lesson.attributes.title}
+            </p>
+            <input type="checkbox" id="checkbox" />
+            <label for="checkbox" class="checkbox-my"></label>
+        </div>
+        `;
+
+      wrapper.append(lessonContainer);
+
+      const quizContainer = document.createElement("div");
+      quizContainer.className = "list-blog-container";
+      quizContainer.innerHTML = `
+        <div class="list-content-box-blog">
+            <span class="file-icon-my"><i class="bx bx-file"></i></span>
+            <p class="list-blog-content">
+                ${lesson.attributes.title}
+            </p>
+            <input type="checkbox" id="checkbox" />
+            <label for="checkbox" class="checkbox-my"></label>
+        </div>
+        `;
+
+      wrapper.append(quizContainer);
+
+      listBlog.append(wrapper);
+    });
+
+    console.log("salom");
+  } catch (error) {
+    console.log(error.message);
+  }
+})();
+
+const video = document.querySelector('.video');

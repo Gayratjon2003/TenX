@@ -502,46 +502,47 @@ body {
                 @include colorWhite2();
                 line-height: 2.5rem;
             }
-            .mark {
-                width: 22%;
-                height: 30rem;
-                margin: 0 auto;
-                border-top: 1px solid;
-                border-color: rgba(240, 240, 240, 0.562);
-                .mark-blog {
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    margin-top: 40%;
-                    margin-bottom: 40%;
-                    i {
-                        @include colorWhite();
-                        font-size: 4rem;
-                        margin: 0 2.5rem;
-                        cursor: pointer;
-                        &:hover {
-                            @include colorWhite2();
-                        }
-                    }
-                }
-                .next-btn-div {
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    .next-lesson {
-                        padding: 1rem 2rem;
-                        background-color: #f6f37b;
-                        border-color: transparent;
-                        border-radius: 0.5rem;
-                        margin: 0 auto;
-                        cursor: pointer;
-                        transition: 0.2s all linear;
-                        &:active {
-                            margin-top: -0.3rem;
-                        }
-                    }
-                }
+            
+        }
+    }
+}
+.mark {
+    width: 22%;
+    height: 30rem;
+    margin: 0 auto;
+    border-top: 1px solid;
+    border-color: rgba(240, 240, 240, 0.562);
+    .mark-blog {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40%;
+        margin-bottom: 40%;
+        i {
+            @include colorWhite();
+            font-size: 4rem;
+            margin: 0 2.5rem;
+            cursor: pointer;
+            &:hover {
+                @include colorWhite2();
+            }
+        }
+    }
+    .next-btn-div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .next-lesson {
+            padding: 1rem 2rem;
+            background-color: #f6f37b;
+            border-color: transparent;
+            border-radius: 0.5rem;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: 0.2s all linear;
+            &:active {
+                margin-top: -0.3rem;
             }
         }
     }
@@ -699,9 +700,7 @@ body {
     cursor: pointer;
     margin: 0 auto;
   }
-  .pt-30 {
-      margin-top: 10rem;
-  }
+
   .hidden {
     display: none;
   }
