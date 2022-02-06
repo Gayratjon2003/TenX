@@ -26,10 +26,9 @@ const questionTyping = document.querySelector(".questionTyping");
 
 const quiz_body_title = document.querySelector(".quiz_body_title");
 
-let scores = 0;
-let currentQuestionIndex = 0;
-
 const beginTest = async () => {
+  let scores = 0;
+  let currentQuestionIndex = 0;
   try {
     const response = await fetch("./data.json");
     if (!response.ok) {
@@ -126,7 +125,7 @@ const beginTest = async () => {
         switchQuestion();
       } else {
         console.log("gameOver");
-        nextBtn.disabled = true;
+        // nextBtn.disabled = true;
         sections.forEach((section) => {
           // const nextLesson = document.querySelector(".next-lesson");
           // const sections = document.querySelectorAll(".section");
