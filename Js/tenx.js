@@ -36,7 +36,7 @@ const beginTest = (responseData) => {
     const switchQuestion = () => {
       const currentQuestion = responseData[currentQuestionIndex];
       quiz_body_title.textContent = currentQuestion.question;
-      if (currentQuestion.answers.length === 2) {
+      if (currentQuestion.status === "trueFalse") {
         mulChoise.classList.add("hidden");
         notOneAnswer.classList.add("hidden");
         questionTyping.classList.add("hidden");
@@ -46,7 +46,7 @@ const beginTest = (responseData) => {
           variants[i].textContent = currentQuestion.answers[i];
         }
         // checkAnswer("trueFalse", currentQuestion.correctAnswer);
-      } else if (currentQuestion.answers.length === 4) {
+      } else if (currentQuestion.status === "mulChoise") {
         notOneAnswer.classList.add("hidden");
         questionTyping.classList.add("hidden");
         trueFalse.classList.add("hidden");
@@ -57,7 +57,7 @@ const beginTest = (responseData) => {
           variants[i].textContent = currentQuestion.answers[i];
         }
         // checkAnswer("mulChoise", currentQuestion.correctAnswer);
-      } else if (currentQuestion.answers.length === 0) {
+      } else if (currentQuestion.status === "questionTyping") {
         notOneAnswer.classList.add("hidden");
         mulChoise.classList.add("hidden");
         trueFalse.classList.add("hidden");
@@ -69,14 +69,10 @@ const beginTest = (responseData) => {
     function checkAnswer() {
       const prevQuestion = responseData[currentQuestionIndex - 1];
       let radios;
-      if (prevQuestion.answers.length === 2) {
+      if (prevQuestion.status === "trueFalse") {
         radios = document.querySelector(".trueFalse").querySelectorAll("input");
-      } else if (prevQuestion.answers.length === 4) {
+      } else if (prevQuestion.status === "mulChoise") {
         radios = document.querySelector(".mulChoise").querySelectorAll("input");
-      } else if (prevQuestion.answers.length > 4) {
-        radios = document
-          .querySelector(".notOneAnswer")
-          .querySelectorAll("input");
       } else {
         radios = document
           .querySelector(".questionTyping")
@@ -84,7 +80,7 @@ const beginTest = (responseData) => {
       }
 
       if (radios.length === 1) {
-        if (radios[0].value === prevQuestion.correctAnswer[0]) {
+        if (radios[0].value === prevQuestion.correctAnswer) {
           scores++;
         }
       } else if (radios.length < 5) {
@@ -92,7 +88,7 @@ const beginTest = (responseData) => {
           if (radios[i].checked) {
             if (
               radios[i].parentElement.nextElementSibling.children[0]
-                .textContent === prevQuestion.correctAnswer[0]
+                .textContent === prevQuestion.correctAnswer
             ) {
               scores++;
             }
