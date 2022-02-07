@@ -26,13 +26,13 @@ const questionTyping = document.querySelector(".questionTyping");
 const quiz_body_title = document.querySelector(".quiz_body_title");
 let scores = 0;
 let currentQuestionIndex = 0;
-const beginTest = async () => {
+const beginTest = (responseData) => {
   try {
-    const response = await fetch("./data.json");
-    if (!response.ok) {
-      throw new Error("Something went wrong");
-    }
-    const responseData = await response.json();
+    // const response = await fetch("./data.json");
+    // if (!response.ok) {
+    //   throw new Error("Something went wrong");
+    // }
+    // const responseData = await response.json();
     const switchQuestion = () => {
       const currentQuestion = responseData[currentQuestionIndex];
       quiz_body_title.textContent = currentQuestion.question;
@@ -173,8 +173,11 @@ const listBlog = document.querySelector(".list-blog");
       if(!isTest) {
         video.src = lessonData[0].attributes.video;
         textBody.textContent = lessonData[0].attributes.content;
+      } else {
+        const quizzesOfLessons = responseData.data.find((lesson) => lesson.id === id);
+
+        beginTest(quizzesOfLessons.attributes.quizJson)
       }
-      console.log(lessonData);
     };
 
     responseData.data.map((lesson) => {
