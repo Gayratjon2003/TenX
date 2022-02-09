@@ -3,9 +3,15 @@
 const nextLessonMy = document.querySelector('.next-btn-my');
 const videoMy = document.querySelector('.video');
 const textBody = document.querySelector('.section-blogs-box-p');
-
+const baseUrl = `https://dry-tundra-80368.herokuapp.com`;
+fetch(`${baseUrl}/api/lessons?populate=*`)
+.then(data=> {
+    return data.json()
+}).then(data=> {
+    videoMy.src = data.data[0].attributes.video;
+    textBody.textContent = data.data[1].attributes.content;
+})
 nextLessonMy.addEventListener('click', ()=> {
-    const baseUrl = `https://dry-tundra-80368.herokuapp.com`;
     fetch(`${baseUrl}/api/lessons?populate=*`)
 .then(data=> {
     return data.json()
@@ -34,7 +40,6 @@ nextLessonMy.addEventListener('click', ()=> {
             console.log('ha');
             // console.log(data.data[2].attributes);
             videoMy.src = data.data[3].attributes.video;
-
             textBody.textContent = data.data[3].attributes.content;
         }
         
