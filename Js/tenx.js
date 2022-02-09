@@ -27,6 +27,7 @@ const quiz_body_title = document.querySelector(".quiz_body_title");
 let scores = 0;
 let currentQuestionIndex = 0;
 const beginTest = (responseData) => {
+  console.log(responseData);
   try {
     // const response = await fetch("./data.json");
     // if (!response.ok) {
@@ -153,7 +154,7 @@ const listBlog = document.querySelector(".list-blog");
 
 (async () => {
   try {
-    const response = await fetch("http://localhost:1337/api/lessons");
+    const response = await fetch("https://dry-tundra-80368.herokuapp.com/api/lessons");
 
     if (!response.ok) {
       throw new Error("Something went wrong");
